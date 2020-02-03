@@ -1,0 +1,347 @@
+
+
+
+R:=inputfromfile(sales1)
+inputfromfile running time:0.0076100826263427734s
+
+
+R1:=select(R,(time>50)or(qty<30))
+
+select running time:0.023543119430541992s
+
+
+R2:=project(R1,saleid,qty,pricerange)
+project running time:0.0001571178436279297s
+
+
+R3:=avg(R1,qty)
+avg running time:0.0009150505065917969s
+
+
+R4:=sumgroup(R1,time,qty)
+sumgroup running time:0.003534078598022461s
+
+
+R5:=sumgroup(R1,qty,time,pricerange)
+sumgroup running time:0.004456996917724609s
+
+
+R6:=avggroup(R1,qty,pricerange)
+avggroup running time:0.0034990310668945312s
+
+
+S:=inputfromfile(sales2)
+inputfromfile running time:0.29427576065063477s
+
+
+T:=join(R,S,R.customerid=S.C)
+join running time:5.294877052307129s
+
+
+T1:=join(R1,S,(R1.qty>S.Q)and(R1.saleid=S.saleid))
+join running time:30.05179715156555s
+
+
+T2:=sort(T1,S_C)
+sort running time:0.00394892692565918s
+
+
+T2prime:=sort(T1,R1_time,S_C)
+sort running time:0.00405120849609375s
+
+
+T3:=movavg(T2prime,R1_qty,3)
+movavg running time:0.0030660629272460938s
+
+
+T4:=movsum(T2prime,R1_qty,5)
+movsum running time:0.0006279945373535156s
+
+
+Q1:=select(R,qty=5)
+select running time:0.005447864532470703s
+
+
+Btree(R,qty)
+Btree running time:0.0012211799621582031s
+
+
+Q2:=select(R,qty=5)
+select running time:0.00016570091247558594s
+
+
+Q3:=select(R,itemid=7)
+select running time:0.002824068069458008s
+
+
+Hash(R,itemid)
+
+Hash running time:0.0011599063873291016s
+
+
+Q4:=select(R,itemid=7)
+select running time:6.818771362304688e-05s
+
+
+Q5:=concat(Q4,Q2)
+concat running time:4.506111145019531e-05s
+
+
+outputtofile(Q5,Q5)
+outputtofile running time:0.004128932952880859s
+
+
+outputtofile(T,T)
+outputtofile running time:0.031787872314453125s
+
+
+R:=inputfromfile(sales1)
+inputfromfile running time:0.003071308135986328s
+
+
+R1:=select(R,(time>50)or(qty<30))
+
+select running time:0.021587133407592773s
+
+
+R2:=project(R1,saleid,qty,pricerange)
+project running time:0.0004730224609375s
+
+
+R3:=avg(R1,qty)
+avg running time:0.0012061595916748047s
+
+
+R4:=sumgroup(R1,time,qty)
+sumgroup running time:0.004484891891479492s
+
+
+R5:=sumgroup(R1,qty,time,pricerange)
+sumgroup running time:0.0047800540924072266s
+
+
+R6:=avggroup(R1,qty,pricerange)
+avggroup running time:0.004399776458740234s
+
+
+S:=inputfromfile(sales2)
+inputfromfile running time:0.4349019527435303s
+
+
+T:=join(R,S,R.customerid=S.C)
+join running time:5.685445070266724s
+
+
+T1:=join(R1,S,(R1.qty>S.Q)and(R1.saleid=S.saleid))
+join running time:38.87012791633606s
+
+
+T2:=sort(T1,S_C)
+sort running time:0.003942966461181641s
+
+
+T2prime:=sort(T1,R1_time,S_C)
+sort running time:0.004538059234619141s
+
+
+T3:=movavg(T2prime,R1_qty,3)
+movavg running time:0.008629083633422852s
+
+
+T4:=movsum(T2prime,R1_qty,5)
+movsum running time:0.0006110668182373047s
+
+
+Q1:=select(R,qty=5)
+select running time:0.006801128387451172s
+
+
+Btree(R,qty)
+
+
+R:=inputfromfile(sales1)
+inputfromfile running time:0.002483844757080078s
+
+
+R1:=select(R,(time>50)or(qty<30))
+
+select running time:0.016864776611328125s
+
+
+R2:=project(R1,saleid,qty,pricerange)
+project running time:0.00010704994201660156s
+
+
+R3:=avg(R1,qty)
+avg running time:0.0010209083557128906s
+
+
+R4:=sumgroup(R1,time,qty)
+sumgroup running time:0.004093170166015625s
+
+
+R5:=sumgroup(R1,qty,time,pricerange)
+sumgroup running time:0.004251956939697266s
+
+
+R6:=avggroup(R1,qty,pricerange)
+avggroup running time:0.0038290023803710938s
+
+
+S:=inputfromfile(sales2)
+inputfromfile running time:0.26319408416748047s
+
+
+T:=join(R,S,R.customerid=S.C)
+join running time:5.516233921051025s
+
+
+T1:=join(R1,S,(R1.qty>S.Q)and(R1.saleid=S.saleid))
+join running time:32.08409595489502s
+
+
+T2:=sort(T1,S_C)
+sort running time:0.005389690399169922s
+
+
+T2prime:=sort(T1,R1_time,S_C)
+sort running time:0.0050008296966552734s
+
+
+T3:=movavg(T2prime,R1_qty,3)
+movavg running time:0.001024007797241211s
+
+
+T4:=movsum(T2prime,R1_qty,5)
+movsum running time:0.00047898292541503906s
+
+
+Q1:=select(R,qty=5)
+select running time:0.006685018539428711s
+
+
+Btree(R,qty)
+Btree running time:0.024998903274536133s
+
+
+Q2:=select(R,qty=5)
+select running time:0.0018188953399658203s
+
+
+Q3:=select(R,itemid=7)
+select running time:0.006421804428100586s
+
+
+Hash(R,itemid)
+
+Hash running time:0.0020151138305664062s
+
+
+Q4:=select(R,itemid=7)
+select running time:7.510185241699219e-05s
+
+
+Q5:=concat(Q4,Q2)
+concat running time:8.296966552734375e-05s
+
+
+outputtofile(Q5,Q5)
+outputtofile running time:0.005045175552368164s
+
+
+outputtofile(T,T)
+outputtofile running time:0.034903764724731445s
+
+
+R:=inputfromfile(sales1)
+inputfromfile running time:0.006256818771362305s
+
+
+R1:=select(R,(time>50)or(qty<30))
+
+select running time:0.018536806106567383s
+
+
+R2:=project(R1,saleid,qty,pricerange)
+project running time:7.009506225585938e-05s
+
+
+R3:=avg(R1,qty)
+avg running time:0.0020668506622314453s
+
+
+R4:=sumgroup(R1,time,qty)
+sumgroup running time:0.005147218704223633s
+
+
+R5:=sumgroup(R1,qty,time,pricerange)
+sumgroup running time:0.006759166717529297s
+
+
+R6:=avggroup(R1,qty,pricerange)
+avggroup running time:0.003225088119506836s
+
+
+S:=inputfromfile(sales2)
+inputfromfile running time:0.24481487274169922s
+
+
+T:=join(R,S,R.customerid=S.C)
+join running time:5.067153215408325s
+
+
+T1:=join(R1,S,(R1.qty>S.Q)and(R1.saleid=S.saleid))
+join running time:30.625962018966675s
+
+
+T2:=sort(T1,S_C)
+sort running time:0.0037920475006103516s
+
+
+T2prime:=sort(T1,R1_time,S_C)
+sort running time:0.003673076629638672s
+
+
+T3:=movavg(T2prime,R1_qty,3)
+movavg running time:0.0031921863555908203s
+
+
+T4:=movsum(T2prime,R1_qty,5)
+movsum running time:0.00084686279296875s
+
+
+Q1:=select(R,qty=5)
+select running time:0.008810997009277344s
+
+
+Btree(R,qty)
+Btree running time:0.008183002471923828s
+
+
+Q2:=select(R,qty=5)
+select running time:0.0003809928894042969s
+
+
+Q3:=select(R,itemid=7)
+select running time:0.004122018814086914s
+
+
+Hash(R,itemid)
+
+Hash running time:0.0012359619140625s
+
+
+Q4:=select(R,itemid=7)
+select running time:7.176399230957031e-05s
+
+
+Q5:=concat(Q4,Q2)
+concat running time:0.00014901161193847656s
+
+
+outputtofile(Q5,Q5)
+outputtofile running time:0.08663487434387207s
+
+
+outputtofile(T,T)
+outputtofile running time:0.032562971115112305s
